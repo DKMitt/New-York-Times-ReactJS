@@ -1,7 +1,7 @@
 # New Your Times News Scraper using React.js
 .
 
-![New Your Times News Scraper using React.js](public/assets/img/nytnews.jpg)
+![New Your Times News Scraper using React.js](public/assets/img/logo.png)
 
 
 ### Project Status - in process, last updated 6/13/2017
@@ -104,9 +104,9 @@ Description of how to use the app
 │   │   │
 │   │   └── img
 │   │       │
-│   │       ├── logo.jpg
+│   │       ├── logo.png
 │   │       │
-│   │       ├── nytnews.jpg
+│   │       ├── nytnews.png
 │   │       │
 │   │       ├── nytnews1.jpg
 │   │       │
