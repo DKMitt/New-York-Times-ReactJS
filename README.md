@@ -1,4 +1,4 @@
-# New Your Times News Scraper using React.js
+# New York Times News Scraper using React.js
 .
 
 ![New Your Times News Scraper using React.js](public/assets/img/logo.png)
@@ -28,7 +28,7 @@
   
 ----
 
-### New Your Times News Scraper using React.js Description
+### New York Times News Scraper using React.js Description
 . 
 
 .
