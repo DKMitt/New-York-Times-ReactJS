@@ -1,7 +1,7 @@
-# New Your Times News Scraper using React.js
+# New York Times News Scraper using React.js
 .
 
-![New Your Times News Scraper using React.js](public/assets/img/nytnews.jpg)
+![New York Times News Scraper using React.js](public/assets/img/nytnews.jpg)
 
 
 ### Project Status - in process, last updated 6/13/2017
@@ -28,7 +28,7 @@
   
 ----
 
-### New Your Times News Scraper using React.js Description
+### New York Times News Scraper using React.js Description
 . 
 
 .
