@@ -1,4 +1,4 @@
-# New Your Times News Scraper using React.js 
+# New York Times News Scraper using React.js 
 ...  
 
 ### Project Status - in process, last updated 6/19/2017
