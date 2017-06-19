@@ -1,4 +1,4 @@
-# New York Times News Scraper using React.js 
+# New Your Times News Scraper using React.js 
 ...  
 
 ### Project Status - in process, last updated 6/19/2017
@@ -75,6 +75,7 @@ Description of how to use the app
 
 .
 ├── app
+│   │
 │   ├── components
 │   │      │
 │   │      ├── Main.js
@@ -91,9 +92,10 @@ Description of how to use the app
 │ 
 ├── models
 │   │
-│   └── nytreact.js
+│   └── Article.js
 │ 
 ├── public
+│   │
 │   ├── assets
 │   │   │
 │   │   ├── css
