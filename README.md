@@ -1,9 +1,9 @@
 # New Your Times News Scraper using React.js 
 ...  
 
-### Project Status - in process, last updated 6/13/2017
+### Project Status - in process, last updated 6/19/2017
 
-  - [x]  file and directory structure creation  - updated 6/13/2017
+  - [x]  file and directory structure creation  - updated 6/19/2017
   - [ ]  website wire framing  
   - [ ]  website coding
   - [ ]  file and directory structure cleanup
@@ -77,11 +77,11 @@ Description of how to use the app
 ├── app
 │   ├── components
 │   │      │
-│   │      ├── Child.js
+│   │      ├── Main.js
 │   │      │
-│   │      ├── Grandchild.js
+│   │      ├── Saved.js
 │   │      │
-│   │      └── Parent.js
+│   │      └── Search.js
 │   │
 │   ├── utils
 │   │      │
@@ -91,21 +91,20 @@ Description of how to use the app
 │ 
 ├── models
 │   │
-│   └── nytReact.js
+│   └── nytreact.js
 │ 
 ├── public
 │   ├── assets
+│   │   │
 │   │   ├── css
 │   │   │   │
-│   │   │   └── nytReact_style.css
+│   │   │   └── nytreact_style.css
 │   │   │
 │   │   └── img
 │   │       │
 │   │       ├── logo.png
 │   │       │
 │   │       ├── nytnews.png
-│   │       │
-│   │       ├── nytnews1.jpg
 │   │       │
 │   │       └── nytnews2.jpg
 │   │
