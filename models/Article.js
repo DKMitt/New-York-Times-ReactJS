@@ -15,7 +15,7 @@ var ArticleSchema = new Schema({
   // date is required date type
   date: {
     type: Date,
-    required: true
+    default: Date.now
   },
   // This only saves one note's ObjectId, ref refers to the Note model
   note: {
