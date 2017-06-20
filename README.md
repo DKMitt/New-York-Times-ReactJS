@@ -1,4 +1,4 @@
-# New Your Times News Scraper using React.js 
+# New Your Times News Articles using React.js 
 ...  
 
 ### Project Status - in process, last updated 6/19/2017
@@ -13,7 +13,7 @@
 
 ### Table of Contents
 
-  -  New York Times News Scraper using React.js Description
+  -  New York Times News Articles using React.js Description
   -  Features to have 
   -  Features to create if time or for future uses
   -  Technologies used 
@@ -25,7 +25,7 @@
   
 ----
 
-### New York Times News Scraper using React.js Description
+### New York Times News Articles using React.js Description
 . 
 
 .
