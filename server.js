@@ -17,14 +17,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
-app.use(bodyParser.txt());
-app.use(bodyParser.josn({type: 'application/vnd.api+json'}));
+app.use(bodyParser.text());
+app.use(bodyParser.json({type: 'application/vnd.api+json'}));
 
 // setup static route for public viewing
 app.use(express.static("./public"));
 
 // DATABASE CONFIG
-// MongoDB Configuration configuration (Change this URL to your own DB)
+// MongoDB configuration (Change this URL to your own DB)
 // mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/reactlocate");
 mongoose.connect("mongodb://localhost/nytreact");
 
@@ -48,56 +48,70 @@ app.get("/", function(req, res) {
 });
 
 
-// Get - This is the route components will use this to query MongoDB for all saved articles.
-// app.get("/api/saved", function(req, res) {
+// Get - route components use to query db for all saved articles.
+app.get("/api/saved", function(req, res) {
 
-//   // find all the records, sorted in descending order, limit records to 20
-//   Article.find({}).sort([
-//     ["date", "descending"]
-//   ]).limit(20).exec(function(err, doc) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     else {
-//       res.send(doc);
-//     }
-//   });
-// });
+  // find all records then sort by date in descending order and return 10 records
+  Article.find({}).sort([
+    ["date", "descending"]
+  ]).limit(10).exec(function(err, doc) {
+    
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.send(doc);
+    }
 
-// // Post - This is the route your components will use to save an article to the database.
-// app.post("/api/saved", function(req, res) {
-//   console.log("BODY: " + req.body.title);
-
-//   // save title based on the JSON input.
-//   Article.create({
-//     title: req.body.title,
-//     date: Date.now(),
-//     url: req.body.url
-//   }, function(err) {
-//     if (err) {
-//       console.log(err);
-//     }
-//     else {
-//       res.send("Saved Search");
-//     }
-//   });
-// });
-
-// // Delete - This is the route components will use to delete a saved article in the database
-// app.get("/api/saved", function(req, res) {
-
-  
-
-// });
+  });
+});
 
 
+// Post - route components use to save article to the db
+app.post("/api/saved", function(req, res) {
+
+// creates variable to store data from article body
+  var newArticle = new Article(req.body);
+
+// breaks down requested body data and stores in seperate variables
+  var title = req.body.title;
+  var date = req.body.date;
+  var url = req.body.url;
+
+// saves article
+  newArticle.save(function(err, doc){
+
+    if (err) {
+      console.log(err);
+    } else {
+      res.send("Saved Search" + doc._id);
+    }
+
+  });
+
+});
 
 
+// Delete - route components use to delete a saved article
+app.delete("/api/saved", function(req, res) {
+
+  var url = req.param('url');
+
+  Article.find({"url": url}).remove().exec(function(err, data){
+
+    if(err){
+      console.log(err);
+    }
+    else {
+      res.send("Article Deleted");
+    }
+
+  });
+
+});
 
 
-// -------------------------------------------------
-
-// Listener
+// listens for port on server
 app.listen(PORT, function() {
-  console.log("App listening on PORT: " + PORT);
+  console.log("Server running on PORT: " + PORT);
 });
