@@ -1,7 +1,6 @@
 // Include Server Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
-var logger = require("morgan");
 var mongoose = require("mongoose");
 
 // Require Article Schema
@@ -13,14 +12,16 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 
-// Use of body parser with our app
+// Use body parser in the app
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(bodyParser.txt());
+app.use(bodyParser.josn({type: 'application/vnd.api+json'}));
 
-
+// setup static route for public viewing
 app.use(express.static("./public"));
-
 
 // DATABASE CONFIG
 // MongoDB Configuration configuration (Change this URL to your own DB)
