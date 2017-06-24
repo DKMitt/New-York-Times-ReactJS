@@ -1,30 +1,115 @@
-// displays the Saved Articles that were searched and stored in the database
+// displays the Saved Articles that were searched
 
-// Include React
+// include dependencies
 var React = require("react");
+var Router = require('react-router');
+
+// include helpers
+var helpers = require('../utils/helpers');
 
 // This is the History component. It will be used to show a log of  recent searches.
-var History = React.createClass({
-  // Here we describe this component's render method
-  render: function() {
-    return (
-      <div className="panel panel-default">
-        <div className="panel-heading">
-          <h3 className="panel-title text-center">Search History</h3>
-        </div>
-        <div className="panel-body text-center">
+var Main = React.createClass({
+  
+  getInitialState: function(){
+    return {
+      savedArticles: ""
+    }
+  },
 
-          {/* Here we use a map function to loop through an array in JSX */}
-          {this.props.history.map(function(search, i) {
-            return (
-              <p key={i}>{search.location} - {search.date}</p>
-            );
-          })}
+  componentDidMount: function(){
+
+    helpers.getSaved()
+      .then(function(articleData){
+        this.setState({
+          savedArticles: articleData.data
+        });
+
+      }.bind(this))
+  },
+
+  handleClick: function(item, event){
+
+    helpers.deleteSaved(item.title, item.date, item.url)
+      .then(function(data){
+
+      helpers.getSaved()
+        .then(function(articleData){
+          this.setState({
+            savedArticles: articleData.data
+          });
+
+        }.bind(this))
+
+
+
+      }.bind(this))
+  },
+
+  render: function(){
+
+    if (this.state.savedArticles == "") {
+      return(
+
+        <li className="list-group-item">
+          <h3>
+              <span><em>Oops! It looks like you haven't saved any articles yet!</em></span>
+          </h3>
+        </li>
+
+      )
+    }
+
+    else {
+
+      var articles = this.state.savedArticles.map(function(article, index){
+
+        return(
+
+            <div key={index}>
+
+              <li className="list-group-item" >
+
+                <h3>
+                  <span><em>{article.title}</em></span>
+                  <span className="btn-group pull-right" >
+                    <a href={article.url} target="_blank"><button className="btn btn-default ">View Article</button></a>
+                    <button className="btn btn-primary" onClick={this.handleClick.bind(this, article)}>Delete</button>
+                  </span>
+                </h3>
+                <p>Date Published: {article.date}</p>
+
+              </li>
+
+            </div>
+        )
+
+      }.bind(this))
+
+    }
+
+    return(
+
+      <div className="main-container">
+        <div className="row">
+          <div className="col-lg-12">
+
+            <div className="panel panel-primary">
+              <div className="panel-heading">
+                <h1 className="panel-title"><strong><i className="fa fa-download" aria-hidden="true"></i> Saved Articles</strong></h1>
+              </div>
+              <div className="panel-body">
+                <ul className="list-group">
+                  {articles}
+                </ul>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
-    );
+
+    )
   }
 });
 
-// Export the component back for use in other files
-module.exports = History;
+module.exports = Main;

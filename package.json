@@ -5,15 +5,13 @@
   "main": "public/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack & node server",
-    "start": "node server",
-    "build": "webpack"
+    "start": "node server"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dkmitt/nytreact.git"
   },
-  "author": "D. K. Mittlestaedt",
+  "author": "",
   "license": "ISC",
   "bugs": {
     "url": ""
@@ -23,11 +21,12 @@
     "axios": "^0.12.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "mongoose": "^4.10.7",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.10.8",
     "morgan": "^1.8.2",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3",
-    "react-router": "^2.4.1",
+    "react-dom": "^0.14.9",
+    "react-router": "^2.8.1",
     "request": "^2.81.0"
   },
   "devDependencies": {

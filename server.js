@@ -25,7 +25,6 @@ app.use(express.static("./public"));
 
 // DATABASE CONFIG
 // MongoDB configuration (Change this URL to your own DB)
-// mongoose.connect("mongodb://admin:codingrocks@ds023664.mlab.com:23664/reactlocate");
 mongoose.connect("mongodb://localhost/nytreact");
 
 var db = mongoose.connection;
@@ -95,7 +94,7 @@ app.post("/api/saved", function(req, res) {
 // Delete - route components use to delete a saved article
 app.delete("/api/saved", function(req, res) {
 
-  var url = req.param('url');
+  var url = req.params('url');
 
   Article.find({"url": url}).remove().exec(function(err, data){
 
