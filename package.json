@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+"
+    "url": "git+https://github.com/dkmitt/nytreact.git"
   },
   "author": "D. K. Mittlestaedt",
   "license": "ISC",
   "bugs": {
     "url": ""
   },
-  "homepage": "",
+  "homepage": "https://github.com/dkmitt/nytreact#readme",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
